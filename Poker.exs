@@ -34,4 +34,23 @@ defmodule Poker do
 		[{y, b}, {y1, b}, {y2, b}, {y3, b}, {y4, b}]
 	end
 
+  def play([{x, a}, {x, a2}, {x, a3}, {x2, a4}, {x2, a5}], [{y, b}, {y, b1}, {y, b2}, {y2, b3}, {y2, b4}]) do #TIE BREAKER FH 3/2 & 3/2
+		"tie"
+	end
+  def play([{x, a}, {x, a2}, {x, a3}, {x2, a4}, {x2, a5}], [{y2, b}, {y2, b1}, {y, b2}, {y, b3}, {y, b4}]) do #TIE BREAKER FH 3/2 & 2/3
+		"tie"
+	end
+  def play([{x, a}, {x, a2}, {x, a3}, {x2, a4}, {x2, a5}], [{y, b}, {y, b1}, {y, b2}, {y2, b3}, {y2, b4}]) do #TIE BREAKER FH 2/3
+		"tie"
+	end
+  def play([{x, a}, {x, a2}, {x, a3}, {x2, a4}, {x2, a5}], [{y, b}, {y, b1}, {y, b2}, {y2, b3}, {y2, b4}]) do #TIE BREAKER FH
+		"tie"
+	end
+	def play([{x, a}, {x1, a}, {x2, a}, {x3, a}, {x4, a}], _) when x==(x1-1) and x==(x2-2) and x==(x3-3) and x==(x4-4) do #PLAYER1 SF
+		[{x, a}, {x1, a}, {x2, a}, {x3, a}, {x4, a}]
+	end
+	def play(_, [{y, b}, {y1, b}, {y2, b}, {y3, b}, {y4, b}]) when y==(y1-1) and y==(y2-2) and y==(y3-3) and y==(y4-4) do #PLAYER2 SF
+		[{y, b}, {y1, b}, {y2, b}, {y3, b}, {y4, b}]
+	end
+
 end
